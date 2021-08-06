@@ -2,7 +2,6 @@
 #include <ostream>
 
 typedef int ElemType;
-typedef int Status;
 
 class sqStack
 {

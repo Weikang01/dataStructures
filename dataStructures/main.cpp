@@ -1,13 +1,14 @@
-#include "sqStack.h"
 #include <iostream>
+#include "chainQueue.h"
+
 
 int main()
 {
-	sqStack st(5, 5);
-	st.push(10);
-	st.push(8);
-	std::cout << st << std::endl;
-
+	chQueue<int> q;
+	q.push(12);
+	q.push(1);
+	q.push(5);
+	std::cout << q << std::endl;
 	std::cin.get();
 	return 0;
 }
