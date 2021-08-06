@@ -22,7 +22,7 @@ void sqStack::clear()
 	top = 0;
 }
 
-bool sqStack::push(ElemType e)
+void sqStack::push(ElemType e)
 {
 	if (top >= size)
 	{
@@ -31,7 +31,34 @@ bool sqStack::push(ElemType e)
 		elem = newbase;
 		size += increment;
 	}
-
-	return false;
+	elem[top++] = e;
 }
 
+ElemType sqStack::pop()
+{
+	if (top == 0)
+		return NULL;
+	return elem[top--];
+}
+
+ElemType sqStack::GetTop()
+{
+	if (top == 0) return NULL;
+	return elem[top-1];
+}
+
+std::ostream& operator<<(std::ostream& out, sqStack& const st)
+{
+	if (st.top == 0)
+	{
+		out << "[]";
+		return out;
+	}
+	out << "[ ";
+	for (size_t i = 0; i < st.top - 1; i++)
+	{
+		out << st.elem[i] << ", ";
+	}
+	out << st.elem[st.top - 1] << " ]";
+	return out;
+}

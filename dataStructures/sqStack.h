@@ -1,4 +1,5 @@
 #pragma once
+#include <ostream>
 
 typedef int ElemType;
 typedef int Status;
@@ -10,12 +11,13 @@ public:
 	~sqStack();
 	bool isEmpty();
 	void clear();
-	bool push(ElemType e);
+	void push(ElemType e);
+	ElemType pop();
+	ElemType GetTop();
+	friend std::ostream& operator<<(std::ostream& out, sqStack& const st);
 private:
 	ElemType* elem;
 	int top;
 	int size;
 	int increment;
 };
-
-
