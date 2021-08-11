@@ -8,18 +8,29 @@ class hsTable
 public:
 	hsTable() {}
 	~hsTable() = default;
-	insert(Type key)
+
+	void insert(Type key)
 	{
 		int p, c;
 		if (!SearchHash(key, p, c))
 		{
 			if (c * 1.f / static_cast<float>(size) < .5f)
 			{
-				// TODO: insert value
+				rcd[p].key = key;
+				tag[p] = 1;
+				count++;
 			}
 		}
 	}
-
+	void remove(Type key)
+	{
+		int p, c;
+		if (SearchHash(key, p, c))
+		{
+			tag[p] == 0;
+			count--;
+		}
+	}
 
 private:
 	int hash(Type key) { return (3 * key) % size; }
@@ -35,8 +46,6 @@ private:
 		if (tag[p] == 1 && key == rcd[p].key) return true;
 		else return false;
 	}
-	
-
 
 private:
 	Type* rcd = new Type(size);
