@@ -1,9 +1,14 @@
 #include <iostream>
-#include "hashTable.h"
+#include "binaryTree.h"
 
 int main()
 {
-	hsTable<int, 10> t;
+	binaryTree<int> t;
+	t.add(2);
+	t.add(10);
+	t.add(1);
+	t.add(3);
+	t.inOrderTraverse();
 	std::cin.get();
 	return 0;
 }

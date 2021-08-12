@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binaryTree.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sqStack.cpp" />
   </ItemGroup>
