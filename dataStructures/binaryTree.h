@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <ostream>
 #include <sstream>
 
 template<typename T, bool (comp) (T a, T b) = [](T a, T b) {return a > b; } >
@@ -76,20 +75,25 @@ public:
 		}
 	}
 
-	void inOrderTraverse() const
+	void inOrderTraverse() 
 	{
 		std::stringstream oss;
 		Node* cur = root;
-		traverseLeft(oss, cur);
+
+		// TODO: traverse
+
+
+
+		std::cout << oss.str() << std::endl;
 	}
 
-	void preOrderTraverse() const
+	void preOrderTraverse() 
 	{}
 
-	void postOrderTraverse() const
+	void postOrderTraverse() 
 	{}
 
-	void traverse(const TraversalOrder order) const
+	void traverse(const TraversalOrder order) 
 	{
 		switch (order)
 		{
@@ -105,24 +109,7 @@ public:
 		}
 	}
 private:
-	void traverseLeft(std::stringstream& oss, Node* cur)
-	{
-		if (cur->lchild != nullptr)
-		{
-			traverseLeft(cur);
-			oss << cur->lchild->value << ", ";
-			cur = cur->lchild;
-		}
-	}
-	void traverseRight(std::stringstream& oss, Node* cur)
-	{
-		if (cur->rchild != nullptr)
-		{
-			oss << cur->rchild->value << ", ";
-			cur = cur->rchild;
-			traverseRight(cur);
-		}
-	}
+
 private:
 	Node* root = nullptr;
 };
